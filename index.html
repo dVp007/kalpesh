@@ -2,32 +2,58 @@
 <html>
 <head>
 	<title>Home || Kalpesh Enterprise</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">LOGO</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn my-2 my-sm-0 search">Search</button>
-    </form>
-  </div>
-</nav>
+  <!-- cart-modal -->
+    <div class="cart modal">
+      <div class="box">
+        <div class="box-head">
+          <i class="fa fa-shopping-cart"></i>
+          <h3>Shopping Cart</h3>
+        </div>
+        <div class="box-body">
+          <ul class="box-body-items list">
+            <li class="item">
+              <img class="product-img" src="imgs/item-a.jpg" alt="item_ball_bearing">
+              <div class="product-wrapper">
+                <div class="product-title">
+                <span>Product name</span>
+                  <div class="product-details">
+                    <span>A short description about the product</span>
+                  </div>
+              </div>
+              <span>Price</span>
+              <span>Quantity</span>
+              <span>Total Price</span>
+              </div>
+            </li>
+          </ul>
+          <div>
+            this is some text
+          </div>
+        </div>
+        <div class="box-footer">
+          <button class="proceed">Proceed</button>
+        </div>
+      </div>
+    </div>
 	<!-- Scripts -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("button.proceed").on("click",function(){
+      alert("Clicked");
+    })
+    var options = {
+      valueNames: [ 'product-img', 'product-details', 'product-title' ]
+    };
+    var hackerList = new List('box-body', options);
+  </script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
