@@ -1,0 +1,48 @@
+    //get the url and parse it
+    var parseUrl = url.parse(req.url,true);
+
+    //get the path
+    var path = parseUrl.pathname;
+    var trimmedPath = path.replace(/\/+|\/+$/g,'');
+    // get the http method
+    var usrMethod = req.method.toLowerCase();
+    // get the QueryString
+    var usrQueryString = parseUrl.query;
+    //get the headers
+    var userHeaders = req.headers;
+    //send the response
+    //decoder
+    var decoder = new stringDecoder('utf-8');
+    var buffer = '';
+    req.on('data',function(data){
+        buffer += decoder.write(data);
+    });
+
+
+    req.on('end',function(){
+
+        buffer += decoder.end()
+
+        //choose the handler
+        var choosenHandler = typeof(router[trimmedPath]) !== 'undefined'?router[trimmedPath]:handlers.notfound;
+
+        //construct the data object to send to the handler
+        var data = {
+            'trimmedPath' : trimmedPath,
+            'queryStringObject' : usrQueryString,
+            'method' : usrMethod,
+            'headers' : userHeaders,
+            'payload' : buffer
+        }
+        //route the header
+        choosenHandler(data,function(statusCode,payload){
+            statusCode = typeof(statusCode == 'number')?statusCode:200;
+            payload = typeof(payload == 'object')?payload:{};
+
+            var payloadStrng = JSON.stringify(payload)
+            res.setHeader('Content-Type','application/json')
+            res.writeHead(statusCode)
+            res.end(payloadStrng);
+            console.log('Returning the res : ',statusCode,payloadStrng);
+        })
+    });
