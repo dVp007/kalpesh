@@ -1,13 +1,25 @@
 {
-    "name": "ecommerce",
-    "version": "1.0.0",
-    "description": "This is an Ecommerce-website",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "node index.js",
-      "start": "node index.js"
-    },
-    "author": "Dharmil Parekh",
-    "license": "MIT"
+  "name": "smart_shop",
+  "version": "1.0.0",
+  "description": "This is an Ecommerce-website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js",
+    "start": "node index.js"
+  },
+  "author": "Dharmil Parekh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dVp007/kalpesh.git"
+  },
+  "keywords": [
+    "ecommerce",
+    "smart-shop"
+  ],
+  "bugs": {
+    "url": "https://github.com/dVp007/kalpesh/issues"
+  },
+  "homepage": "https://github.com/dVp007/kalpesh#readme"
 }
